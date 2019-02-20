@@ -1,7 +1,7 @@
 from website import Website, Page
 from flask import Flask, render_template
 
-ws=Website(name="Hazard Collectives", home_page=Page("home", "/home", "index.html"))
+ws=Website(name="Hazard Collective", home_page=Page("home", "/home", "index.html"))
 ws.add_pages({
 	Page("generic", "/generic", "generic.html"),
 	Page("elements", "/elements", "elements.html")
@@ -15,7 +15,6 @@ def home():
 
 @app.route(ws.pages[1].url)
 def generic():
-	print("HEHE")
 	return render_template(ws.pages[1].html, website=ws, page=ws.pages[1])
 
 @app.route(ws.pages[2].url)
